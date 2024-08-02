@@ -1,0 +1,170 @@
+[
+  {
+    "id": 6,
+    "recipe": [
+      {
+        "ingredient": "green leaf lettuce",
+        "category": "vegetable",
+        "image": "/Green-Leaf-Lettuce.jpg",
+        "calories": 8,
+        "quantity": 1
+      },
+      {
+        "ingredient": "Kale",
+        "category": "vegetable",
+        "image": "/Kale.jpg",
+        "calories": 10,
+        "quantity": 1
+      }
+    ],
+    "name": "ertvd",
+    "totalCalories": 18
+  },
+  {
+    "id": 9,
+    "recipe": [
+      {
+        "ingredient": "avocado",
+        "category": "fruit",
+        "calories": 120,
+        "quantity": 3,
+        "image": "/Avocado.jpg"
+      },
+      {
+        "ingredient": "Tomato",
+        "category": "fruit",
+        "calories": 18,
+        "quantity": 2,
+        "image": "/Tomato.jpg"
+      },
+      {
+        "ingredient": "Barley",
+        "category": "dressing",
+        "image": "/Barley.jpg",
+        "calories": 100,
+        "quantity": 3
+      }
+    ],
+    "name": "15ewrf",
+    "totalCalories": 696
+  },
+  {
+    "id": 11,
+    "recipe": [
+      {
+        "ingredient": "Kale",
+        "category": "vegetable",
+        "calories": 10,
+        "quantity": 1,
+        "image": "/Kale.jpg"
+      },
+      {
+        "ingredient": "red cabbage",
+        "category": "vegetable",
+        "calories": 10,
+        "quantity": 1,
+        "image": "/Red-Cabbage.jpg"
+      }
+    ],
+    "name": "kbotod",
+    "totalCalories": 20
+  },
+  {
+    "id": 12,
+    "recipe": [
+      {
+        "ingredient": "green leaf lettuce",
+        "category": "vegetable",
+        "calories": 8,
+        "quantity": 1,
+        "image": "/Green-Leaf-Lettuce.jpg"
+      },
+      {
+        "ingredient": "Bok choy",
+        "category": "vegetable",
+        "calories": 7,
+        "quantity": 2,
+        "image": "/Bok-Choy.jpg"
+      },
+      {
+        "ingredient": "Kale",
+        "category": "vegetable",
+        "calories": 10,
+        "quantity": 2,
+        "image": "/Kale.jpg"
+      },
+      {
+        "ingredient": "red cabbage",
+        "category": "vegetable",
+        "calories": 10,
+        "quantity": 1,
+        "image": "/Red-Cabbage.jpg"
+      }
+    ],
+    "name": "jyhtktgj",
+    "totalCalories": 52
+  },
+  {
+    "id": 116,
+    "recipe": [
+      {
+        "ingredient": "Bok choy",
+        "category": "vegetable",
+        "calories": 7,
+        "quantity": 1,
+        "image": "/Bok-Choy.jpg"
+      },
+      {
+        "ingredient": "Kale",
+        "category": "vegetable",
+        "calories": 10,
+        "quantity": 1,
+        "image": "/Kale.jpg"
+      }
+    ],
+    "name": "jkglkdfgklj;",
+    "totalCalories": 17
+  },
+  {
+    "id": 117,
+    "recipe": [
+      {
+        "ingredient": "Kale",
+        "category": "vegetable",
+        "calories": 10,
+        "quantity": 1,
+        "image": "/Kale.jpg"
+      },
+      {
+        "ingredient": "red cabbage",
+        "category": "vegetable",
+        "calories": 10,
+        "quantity": 1,
+        "image": "/Red-Cabbage.jpg"
+      }
+    ],
+    "name": "twqetqwe",
+    "totalCalories": 20
+  },
+  {
+    "id": 118,
+    "recipe": [
+      {
+        "ingredient": "red cabbage",
+        "category": "vegetable",
+        "calories": 10,
+        "quantity": 2,
+        "image": "/Red-Cabbage.jpg"
+      },
+      {
+        "ingredient": "pineapple",
+        "category": "fruit",
+        "calories": 25,
+        "quantity": 1,
+        "image": "/Pineapple.jpg"
+      }
+    ],
+    "name": "asd",
+    "totalCalories": 45
+  }
+]

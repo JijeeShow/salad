@@ -1,0 +1,140 @@
+[
+  {
+    "ingredient": "green leaf lettuce",
+    "category": "vegetable",
+    "image": "/Green-Leaf-Lettuce.jpg",
+    "calories": 8
+  },
+  {
+    "ingredient": "Bok choy",
+    "category": "vegetable",
+    "image": "/Bok-Choy.jpg",
+    "calories": 7
+  },
+  {
+    "ingredient": "Kale",
+    "category": "vegetable",
+    "image": "/Kale.jpg",
+    "calories": 10
+  },
+  {
+    "ingredient": "red cabbage",
+    "category": "vegetable",
+    "image": "/Red-Cabbage.jpg",
+    "calories": 10
+  },
+  {
+    "ingredient": "carrots",
+    "category": "vegetable",
+    "image": "/Carrots.jpg",
+    "calories": 12
+  },
+  {
+    "ingredient": "avocado",
+    "category": "fruit",
+    "image": "/Avocado.jpg",
+    "calories": 120
+  },
+  {
+    "ingredient": "Tomato",
+    "category": "fruit",
+    "image": "/Tomato.jpg",
+    "calories": 18
+  },
+  {
+    "ingredient": "pineapple",
+    "category": "fruit",
+    "image": "/Pineapple.jpg",
+    "calories": 25
+  },
+  {
+    "ingredient": "mix berries",
+    "category": "fruit",
+    "image": "/Mix-Berries.jpg",
+    "calories": 28
+  },
+  {
+    "ingredient": "Corn",
+    "category": "fruit",
+    "image": "/Corn.jpg",
+    "calories": 43
+  },
+  {
+    "ingredient": "Grilled Shrimp",
+    "category": "protein",
+    "image": "/Grilled-Shrimp.jpg",
+    "calories": 98
+  },
+  {
+    "ingredient": "Grilled Chicken Breast",
+    "category": "protein",
+    "image": "/Grilled-Chicken-Breast.jpg",
+    "calories": 165
+  },
+  {
+    "ingredient": "Bacon",
+    "category": "protein",
+    "image": "/Bacon.jpg",
+    "calories": 108
+  },
+  {
+    "ingredient": "Smoked Salmon",
+    "category": "protein",
+    "image": "/Smoked-Salmon.jpg",
+    "calories": 58
+  },
+  {
+    "ingredient": "Grilled Beef",
+    "category": "protein",
+    "image": "/Grilled-Beef.jpg",
+    "calories": 250
+  },
+  {
+    "ingredient": "Crouton",
+    "category": "dressing",
+    "image": "/Crouton.jpg",
+    "calories": 81
+  },
+  {
+    "ingredient": "Barley",
+    "category": "dressing",
+    "image": "/Barley.jpg",
+    "calories": 100
+  },
+  {
+    "ingredient": "Cashew Nut",
+    "category": "dressing",
+    "image": "/Cashew-Nut.jpg",
+    "calories": 110
+  },
+  {
+    "ingredient": "Cream Dressing",
+    "category": "dressing",
+    "image": "/Cream-Dressing.jpg",
+    "calories": 60
+  },
+  {
+    "ingredient": "Balsamic Dressing",
+    "category": "dressing",
+    "image": "/Balsamic-Dressing.jpg",
+    "calories": 26
+  },
+  {
+    "ingredient": "Japanese Shoyu",
+    "category": "dressing",
+    "image": "/Japanese-Shoyu.jpg",
+    "calories": 15
+  },
+  {
+    "ingredient": "Seafood Cream Dressing",
+    "category": "dressing",
+    "image": "/Seafood-Cream-Dressing.jpg",
+    "calories": 75
+  },
+  {
+    "ingredient": "Roast Sesame Dressing",
+    "category": "dressing",
+    "image": "/Roast-Sesame-Dressing.jpg",
+    "calories": 60
+  }
+]
