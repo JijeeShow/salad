@@ -19,20 +19,28 @@ const EditRecipe = () => {
     const data = {
       id,
     };
+    try {
+      const response = await fetch("http://localhost:3000/api/findRecipeById", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      const jsonData = await response.json();
+      if (response.status !== 200) {
+        throw new Error("Network response was not ok", jsonData.message);
+      }
 
-    const response = await fetch("http://localhost:3000/api/findRecipeById", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-
-    if (response.ok) {
-      const jsondata = await response.json();
-      const detailrecipe = jsondata.data;
+      const detailrecipe = jsonData.data;
       setDetail(detailrecipe);
       sumCalories(detailrecipe);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        alert(err.message);
+      } else {
+        alert("An unknown error occurred");
+      }
     }
   };
 
@@ -67,16 +75,24 @@ const EditRecipe = () => {
       id: id,
       totalCalories: countcalories,
     };
-
-    const res = await fetch("http://localhost:3000/api/updateRecipe", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
-
-    if (res.ok) {
-      console.log("Recipe updated successfully");
-      setOpentpopup(true);
+    try {
+      const response = await fetch("http://localhost:3000/api/updateRecipe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const jsonData = await response.json();
+      if (response.status !== 200) {
+        throw new Error("Network response was not ok", jsonData.message);
+      } else if (response.status === 200) {
+        setOpentpopup(true);
+      }
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        alert(err.message);
+      } else {
+        alert("An unknown error occurred");
+      }
     }
   };
 
@@ -91,21 +107,30 @@ const EditRecipe = () => {
   const toggleDropdown = async (detail: Ingredient[]) => {
     setIsOpen(!isOpen);
 
-    console.log("toggleDropdown", detail);
-    const response = await fetch(
-      "http://localhost:3000/api/findIngredientNotName",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(detail),
+    try {
+      const response = await fetch(
+        "http://localhost:3000/api/findIngredientNotName",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(detail),
+        }
+      );
+      const jsonData = await response.json();
+      if (response.status !== 200) {
+        throw new Error("Network response was not ok", jsonData.message);
       }
-    );
-    if (response.ok) {
-      const jsondata = await response.json();
-      const data = jsondata.data;
+
+      const data = jsonData.data;
       setOption(data);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        alert(err.message);
+      } else {
+        alert("An unknown error occurred");
+      }
     }
   };
 
@@ -217,12 +242,14 @@ const EditRecipe = () => {
                   )}
                 </div>
               </div>
-              <div className="border-b border-gray-300 my-3"></div>
+              <div className="border-b border-[#F8B602] border-2 my-3"></div>
               <div className="flex justify-between my-10">
                 <span>Total calorie</span>
                 <div>
-                  <span>{countcalories}</span>
-                  <span className="text-[#F8B602] ml-1">Cal</span>
+                  <span className=" text-[20px]  ">{countcalories}</span>
+                  <span className="text-[#F8B602] ml-1 font-[800] text-[20px]">
+                    Cal
+                  </span>
                 </div>
               </div>
               <button

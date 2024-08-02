@@ -10,16 +10,29 @@ interface PopupProps {
 const Popupdeleterecipe: React.FC<PopupProps> = ({ open, onClose, id }) => {
   const handleSubmit = async () => {
     const data = {
-      id,
+      id: id,
     };
-    const res = await fetch("http://localhost:3000/api/deleteRecipeById", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
-    if (res.status == 200) {
-      console.log("OK");
-      window.location.href = '/recipe';
+
+    try {
+      const response = await fetch("/api/deleteRecipeById", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const jsonData = await response.json();
+      if (response.status !== 200) {
+        console.log("no 200", jsonData.message);
+        throw new Error("Network response was not ok", jsonData.message);
+      } else if (response.status === 200) {
+        console.log(" 200", jsonData.message);
+        window.location.href = "/recipe";
+      }
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        alert(err.message);
+      } else {
+        alert("An unknown error occurred");
+      }
     }
   };
   return (

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Recipe, Ingredient } from "../app/interface/interface";
 
-
 interface PopupProps {
   open: boolean;
   onClose: () => void;
@@ -24,9 +23,7 @@ const Popupcreaterecipe: React.FC<PopupProps> = ({
     setName(e.target.value);
   };
 
-  const handleSubmit = async (event: React.FormEvent) => {
-
-
+  const handleSubmit = async () => {
     for (let i = 0; i < recipe.length; i++) {
       const namein = ingredients[i];
       if (recipe[i] > 0) {
@@ -45,19 +42,26 @@ const Popupcreaterecipe: React.FC<PopupProps> = ({
       name: name,
       totalCalories: totalCalories,
     };
-
-    const res = await fetch("http://localhost:3000/api/saladmaker", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
-
-    if (res.ok) {
-      console.log("Recipe created successfully");
-      window.location.href = '/saladmaker';
-      
-    } else {
-      console.error("Failed to create recipe", res.status);
+    console.log(data);
+    try {
+      const response = await fetch("http://localhost:3000/api/createRecipe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const jsonData = await response.json();
+      if (response.status !== 200) {
+        throw new Error("Network response was not ok", jsonData.message);
+      } else if (response.status === 200) {
+        console.log("200 cre");
+        window.location.href = "/saladmaker";
+      }
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        alert(err.message);
+      } else {
+        alert("An unknown error occurred");
+      }
     }
   };
 

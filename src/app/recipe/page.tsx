@@ -2,10 +2,9 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Popupdeleterecipe from "../../components/Popupdeleterecipe";
-import { Recipe, Ingredient } from '../interface/interface';
+import { Recipe, Ingredient } from "../interface/interface";
 import { BiEdit } from "react-icons/bi";
 import { BiTrash } from "react-icons/bi";
-
 
 export default function AllRecipe() {
   const router = useRouter();
@@ -16,10 +15,11 @@ export default function AllRecipe() {
   const fetchData = async () => {
     try {
       const response = await fetch("/api/allRecipe");
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
       const jsonData = await response.json();
+      if (response.status !== 200) {
+        throw new Error("Network response was not ok", jsonData.message);
+      }
+
       const recipeArray = jsonData.data;
       setRecipelist(recipeArray);
     } catch (err: unknown) {
@@ -36,14 +36,10 @@ export default function AllRecipe() {
 
   const handleToEditRecipe = async (id: number) => {
     router.push(`/recipe/editrecipe?id=${id}`);
-    // const queryString = new URLSearchParams({
-    //   id: JSON.stringify(id),
-    // }).toString();
-    // router.push(`/recipe/editrecipe?${queryString}`);
   };
 
   return (
-    <div className="flex flex-col flex-1 ml-10/12 p-5">
+    <div className="flex flex-col flex-1 ml-10/12 p-5 pl-10">
       <span className="text-[25px] font-[600]">Recipe</span>
       <div className="flex justify-center">
         <div className="flex flex-col bg-white w-full rounded-xl  justify-center p-5 mt-5">
@@ -67,14 +63,14 @@ export default function AllRecipe() {
                         setIdClick(id);
                       }}
                     >
-                      <BiTrash/>
+                      <BiTrash />
                       Delete
                     </button>
                     <button
                       className="flex w-3/6 justify-center bg-white rounded-3xl items-center"
                       onClick={() => handleToEditRecipe(id)}
                     >
-                      <BiEdit/>
+                      <BiEdit />
                       Edit
                     </button>
                   </div>
@@ -90,6 +86,5 @@ export default function AllRecipe() {
         id={idclick}
       />
     </div>
-    
   );
 }

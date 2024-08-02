@@ -47,22 +47,23 @@ export default function Salad() {
   const [totalCalories, setTotalCalories] = useState<number>(0);
   const [totalingredients, setTotalingredients] = useState<number>(0);
   const [open, setOpen] = useState<boolean>(false);
-  const [findName, setFindName] = useState<string>();
-
 
   const fetchData = async () => {
     try {
-      const response = await fetch("/api/saladmaker");
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
+      const response = await fetch("/api/allSaladmaker");
       const jsonData = await response.json();
-      const ingredientArray = jsonData.data;
-      setIngredients(ingredientArray);
-      setInitiaIingredients(ingredientArray);
-      setCreateRecipe(new Array(ingredientArray.length).fill(0));
+      if (response.status !== 200) {
+        throw new Error("Network response was not ok", jsonData.message);
+      } else {
+        console.log("200");
+        const ingredientArray = jsonData.data;
+        setIngredients(ingredientArray);
+        setInitiaIingredients(ingredientArray);
+        setCreateRecipe(new Array(ingredientArray.length).fill(0));
+      }
     } catch (err: unknown) {
       if (err instanceof Error) {
+        console.log("sdfsdfsdf", err.message);
         alert(err.message);
       } else {
         alert("An unknown error occurred");
@@ -80,14 +81,14 @@ export default function Salad() {
         check += 1;
       }
     }
-    console.log(createRecipe);
     if (check == updatedCategories.length) {
       try {
-        const response = await fetch("/api/saladmaker");
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
+        const response = await fetch("/api/allSaladmaker");
         const jsonData = await response.json();
+        if (response.status !== 200) {
+          throw new Error("Network response was not ok", jsonData.message);
+        }
+
         const ingredientArray = jsonData.data;
         setIngredients(ingredientArray);
       } catch (err: unknown) {
@@ -100,17 +101,17 @@ export default function Salad() {
     } else {
       try {
         const res = await fetch(
-          "http://localhost:3000/api/findSaladmakerByCategory",
+          "http://localhost:3000/api/findIngredientsByCategory",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(categorefill),
           }
         );
-        if (!res.ok) {
-          throw new Error("Network response was not ok");
-        }
         const jsonData = await res.json();
+        if (res.status !== 200) {
+          throw new Error("Network response was not ok", jsonData.message);
+        }
         const ingredientArray = jsonData.data;
         setIngredients(ingredientArray);
       } catch (err: unknown) {
@@ -127,7 +128,6 @@ export default function Salad() {
   }, []);
 
   function updatestatus(index: number) {
-    console.log("in");
     setCategories((prevCategories) => {
       const updatedCategories: Category[] = prevCategories.map(
         (category, idx) =>
@@ -170,36 +170,63 @@ export default function Salad() {
       sumIngreedient(newRecipe);
       return newRecipe;
     });
-
   }
   const findIngredientByName = async (formData: FormData) => {
-    const name = formData.get("name");
-    const res = await fetch("http://localhost:3000/api/findIngredientByName", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(name),
-    });
-    const jsonData = await res.json();
-    const data = jsonData.data;
-    setIngredients(data);
+    try {
+      const name = formData.get("name");
+      const res = await fetch(
+        "http://localhost:3000/api/findIngredientByName",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(name),
+        }
+      );
+      const jsonData = await res.json();
+      if (res.status !== 200) {
+        throw new Error("Network response was not ok", jsonData.message);
+      }
+
+      const data = jsonData.data;
+      setIngredients(data);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        alert(err.message);
+      } else {
+        alert("An unknown error occurred");
+      }
+    }
   };
 
   const findRealTime = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setFindName(value);
-    const res = await fetch("http://localhost:3000/api/findIngredientByName", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(value),
-    });
-    const jsonData = await res.json();
-    const data = jsonData.data;
-    setIngredients(data);
+    try {
+      const value = e.target.value;
+      const res = await fetch(
+        "http://localhost:3000/api/findIngredientByName",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(value),
+        }
+      );
+      const jsonData = await res.json();
+      if (res.status !== 200) {
+        throw new Error("Network response was not ok", jsonData.message);
+      }
+      const data = jsonData.data;
+      setIngredients(data);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        alert(err.message);
+      } else {
+        alert("An unknown error occurred");
+      }
+    }
   };
 
   return (
     <div className="w-10/12 ">
-      <div className="w-full px-5">
+      <div className="w-full pl-10 pr-5">
         <div className="flex bg-[#f5f5f5] w-full my-[20px] items-center justify-between">
           <span className="text-[#000] content-center mr-5 font-bold text-[20px] ">
             Les&#39;t Create...your own salad!!!

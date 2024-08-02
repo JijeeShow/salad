@@ -76,22 +76,3 @@ const Sidebar = () => {
   );
 };
 export default Sidebar;
-// return (
-//             <li
-//               key={name}
-//               className={`list-none rounded-xl m-3 p-2 w-4/5 ${bgColor} cursor-pointer`}
-//               onClick={() => router.push(href)}
-//             >
-//               <div className="flex items-center md:justify-start justify-center">
-//                 <span className={` ${textColor} mr-2`}>
-//                   {React.cloneElement(icon, {
-//                     className: textColor,
-//                   })}
-//                 </span>
-//                 <span className={`hidden md:block ${textColor}`}>{name}</span>
-//               </div>
-//             </li>
-//           );
-
-// const textColor = isActive ? "text-white" : "text-[#A098AE]";
-// const bgColor = isActive ? "bg-[#F8B602]" : "";
