@@ -42,7 +42,6 @@ const Popupcreaterecipe: React.FC<PopupProps> = ({
       name: name,
       totalCalories: totalCalories,
     };
-    console.log(data);
     try {
       const response = await fetch("http://localhost:3000/api/createRecipe", {
         method: "POST",
@@ -53,7 +52,6 @@ const Popupcreaterecipe: React.FC<PopupProps> = ({
       if (response.status !== 200) {
         throw new Error("Network response was not ok", jsonData.message);
       } else if (response.status === 200) {
-        console.log("200 cre");
         window.location.href = "/saladmaker";
       }
     } catch (err: unknown) {

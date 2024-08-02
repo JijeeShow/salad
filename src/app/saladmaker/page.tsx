@@ -55,7 +55,6 @@ export default function Salad() {
       if (response.status !== 200) {
         throw new Error("Network response was not ok", jsonData.message);
       } else {
-        console.log("200");
         const ingredientArray = jsonData.data;
         setIngredients(ingredientArray);
         setInitiaIingredients(ingredientArray);
@@ -63,7 +62,6 @@ export default function Salad() {
       }
     } catch (err: unknown) {
       if (err instanceof Error) {
-        console.log("sdfsdfsdf", err.message);
         alert(err.message);
       } else {
         alert("An unknown error occurred");

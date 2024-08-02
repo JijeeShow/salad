@@ -8,10 +8,7 @@ const recipes: Recipe[] = recipesJson as Recipe[];
 
 export async function POST(req: NextRequest) {
   try {
-    console.log("in");
     const data = await req.json();
-    console.log("data");
-    console.log(data.id);
     if (recipes.length > 0) {
       const filter = recipes.filter((recipe) => recipe.id !== data.id);
       const filePath = path.join(
@@ -21,10 +18,8 @@ export async function POST(req: NextRequest) {
         "data",
         "recipes.json"
       );
-      console.log("recipes");
       fs.writeFileSync(filePath, JSON.stringify(filter, null, 2));
     }
-    console.log("ff");
 
     return NextResponse.json({ status: 200 });
   } catch (error) {

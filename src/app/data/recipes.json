@@ -12,5 +12,75 @@
     ],
     "name": "test1",
     "totalCalories": 30
+  },
+  {
+    "id": 1,
+    "recipe": [
+      {
+        "ingredient": "carrots",
+        "category": "vegetable",
+        "calories": 12,
+        "quantity": 4,
+        "image": "/Carrots.jpg"
+      }
+    ],
+    "name": "sdfsdf",
+    "totalCalories": 48
+  },
+  {
+    "id": 2,
+    "recipe": [
+      {
+        "ingredient": "Tomato",
+        "category": "fruit",
+        "calories": 18,
+        "quantity": 3,
+        "image": "/Tomato.jpg"
+      }
+    ],
+    "name": "test",
+    "totalCalories": 54
+  },
+  {
+    "id": 3,
+    "recipe": [
+      {
+        "ingredient": "avocado",
+        "category": "fruit",
+        "calories": 120,
+        "quantity": 3,
+        "image": "/Avocado.jpg"
+      },
+      {
+        "ingredient": "Tomato",
+        "category": "fruit",
+        "calories": 18,
+        "quantity": 2,
+        "image": "/Tomato.jpg"
+      }
+    ],
+    "name": "sdfsdf",
+    "totalCalories": 396
+  },
+  {
+    "id": 4,
+    "recipe": [
+      {
+        "ingredient": "Corn",
+        "category": "fruit",
+        "calories": 43,
+        "quantity": 3,
+        "image": "/Corn.jpg"
+      },
+      {
+        "ingredient": "Grilled Shrimp",
+        "category": "protein",
+        "calories": 98,
+        "quantity": 2,
+        "image": "/Grilled-Shrimp.jpg"
+      }
+    ],
+    "name": "test",
+    "totalCalories": 325
   }
 ]
