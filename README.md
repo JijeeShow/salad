@@ -1,3 +1,10 @@
-#Start
+## SaladMaker
+    Application ที่ข่วยจัดการเมนูรายการอาหารสลัดของคุณ
 
-Next.js 14.2.5
+## Version หรือ ตัวโปรแกรมที่ใช้ 
+    Next.js 14.2.5
+    npm 10.2.4
+    npm install react-icons --save
+ 
+
+
